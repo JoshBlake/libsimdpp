@@ -160,7 +160,7 @@
 #endif
 
 #define SIMDPP_ARCH_NAMESPACE SIMDPP_PP_PASTE15(arch, \
-	SIMDPP_NS_ID_NULL, SIMDPP_NS_ID_SSE2, SIMDPP_NS_ID_SSE3,                \
+    SIMDPP_NS_ID_NULL, SIMDPP_NS_ID_SSE2, SIMDPP_NS_ID_SSE3,                \
     SIMDPP_NS_ID_SSSE3, SIMDPP_NS_ID_SSE4_1, SIMDPP_NS_ID_AVX,              \
     SIMDPP_NS_ID_AVX2, SIMDPP_NS_ID_AVX512F, SIMDPP_NS_ID_FMA3,             \
     SIMDPP_NS_ID_FMA4, SIMDPP_NS_ID_XOP, SIMDPP_NS_ID_NEON,                 \
@@ -267,6 +267,12 @@
 #define SIMDPP_ALIGN(X) __declspec(align(X))
 #else
 #error "Unsupported compiler"
+#endif
+
+#if __ANDROID__
+#define SIMDPP_STD_NS
+#else
+#define SIMDPP_STD_NS std
 #endif
 
 #include <simdpp/detail/workarounds.h>

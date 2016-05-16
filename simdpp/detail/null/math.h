@@ -130,7 +130,7 @@ V fmadd(const V& a, const V& b, const V& c)
 {
     V r;
     for (unsigned i = 0; i < V::length; i++) {
-        r.el(i) = std::fma(a.el(i), b.el(i), c.el(i));
+        r.el(i) = SIMDPP_STD_NS::fma(a.el(i), b.el(i), c.el(i));
     }
     return r;
 }
@@ -140,7 +140,7 @@ V fmsub(const V& a, const V& b, const V& c)
 {
     V r;
     for (unsigned i = 0; i < V::length; i++) {
-        r.el(i) = std::fma(a.el(i), b.el(i), -c.el(i));
+        r.el(i) = SIMDPP_STD_NS::fma(a.el(i), b.el(i), -c.el(i));
     }
     return r;
 }
